@@ -1,57 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,400i');
 
-@font-face {
-  font-family: Optima-ExtraBlack;
-  src: url(./Optima-ExtraBlack.ttf);
-}
+@import './components/_navbar';
 
 #app {
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
 }
 
-.filter-nav {
-  height: 92px;
-  background-color: #7828B4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .filter-nav-brand {
-    a {
-      font-family: 'Optima-ExtraBlack', serif;
-      font-size: 2rem;
-      color: white!important;
-      text-decoration:none;
-    }
-  }
-
-  .filter-search-box {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 388px;
-    border-bottom: 1px solid #FFFFFF;
-
-    i {
-      margin-right: 20px;
-      font-size: 1.5rem;
-      color: white;
-    }
-
-    input {
-      font-size: 20px;
-      color: rgba(255,255,255,0.50);
-      background: transparent;
-      border: none;
-      outline: none;
-
-      &::placeholder {
-        font-style: italic;
-      }
-
-      &:focus {
-        box-shadow: none;
-      }
-    }
-  }
+@font-face {
+  font-family: Optima-ExtraBlack;
+  src: url("./Optima-ExtraBlack.ttf") format("truetype");
 }
