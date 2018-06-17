@@ -35,10 +35,14 @@
               <div class="tel">{{record.Tel}}</div>
             </div>
             <div class="section">
-              <i class="fas fa-map-marker-alt"></i>
-              <div class="address">{{record.Add}}</div>
+              <div class="break-point">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="address">{{record.Add}}</div>
+              </div>
+              <div class="break-point">
               <i class="far fa-calendar-alt"></i>
               <div class="open-time">{{record.Opentime}}</div>
+              </div>
             </div>
           </div>
         </li>
