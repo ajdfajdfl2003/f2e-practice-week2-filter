@@ -6,7 +6,7 @@
   .left {
     flex: 2;
 
-    .location {
+    .filter-section {
       padding: 24px 40px;
       box-sizing: border-box;
       height: 127px;
@@ -21,6 +21,11 @@
   }
   .right {
     flex: 10;
+
+    .filter-pagination {
+      padding-top: 1.5rem;
+      padding-right: 42px;
+    }
 
     .total-result {
       padding-top: 1.5rem;

@@ -1,17 +1,17 @@
 <template>
   <div class="filter-main">
     <div class="left">
-      <div class="location">
-        <h3>Location</h3>
+      <div class="filter-section">
+        <h3>景點所屬</h3>
         <b-dropdown id="location" text="Taiwan" variant="light" class="m-md-0">
           <b-dropdown-item>Other place</b-dropdown-item>
         </b-dropdown>
       </div>
-      <div class="date">
-
+      <div class="filter-section">
+        <h3>開放時間</h3>
       </div>
-      <div class="category">
-
+      <div class="filter-section">
+        <h3>古蹟分級</h3>
       </div>
     </div>
     <div class="right">
@@ -43,6 +43,9 @@
           </div>
         </li>
       </ul>
+      <div class="filter-pagination">
+
+      </div>
     </div>
   </div>
 </template>
@@ -65,7 +68,6 @@ export default {
         const result = resp.data.result
         vm.totalRecord = result.total
         vm.records = result.records
-        console.log(vm.records)
       }
     }
   },
