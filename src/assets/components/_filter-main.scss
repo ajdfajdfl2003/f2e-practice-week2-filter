@@ -24,7 +24,37 @@
 
     .filter-pagination {
       padding-top: 1.5rem;
-      padding-right: 42px;
+
+      .filter-page-panel {
+        list-style: none;
+        position: absolute;
+        right: 42px;
+        display: flex;
+        flex-wrap: wrap;
+
+        .page-change {
+          text-align: center;
+          padding-top: 8px;
+          height: 42px;
+          width: 41px;
+          background: #FFFFFF;
+          border: 1px solid #ECEEEF;
+          border-radius: 4px;
+          cursor: pointer;
+
+          .page {
+            color: #9013FE;
+            text-decoration:none;
+          }
+
+          &.active{
+            background-color: #9013FE;
+            * {
+              color: white;
+            }
+          }
+        }
+      }
     }
 
     .total-result {
@@ -48,7 +78,7 @@
         margin-top: 1.5rem;
         margin-right: 40px;
         transition: .35s;
-        box-shadow: 0 5px 30px rgba(black,0.2);
+        box-shadow: 0 5px 30px rgba(black, 0.2);
 
         &:hover {
           box-shadow: 0 10px 6px -6px #777;

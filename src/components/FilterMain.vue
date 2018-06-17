@@ -18,11 +18,11 @@
       <div class="total-result">
         Showing
         <span>{{totalRecord}}</span>
-         results by…
+        results by…
       </div>
       <ul>
         <li class="item"
-            v-for="record in records"
+            v-for="record in filterData[currentPage]"
             :key="record.id">
           <img v-bind:src="record.Picture1"/>
           <div class="detail">
@@ -44,7 +44,19 @@
         </li>
       </ul>
       <div class="filter-pagination">
-
+      <paginate
+        :page-count="numberOfPages"
+        :click-handler="pagClickCallback"
+        :prev-text="'«'"
+        :prev-class="'page-change'"
+        :prev-link-class="'page'"
+        :next-text="'»'"
+        :next-class="'page-change'"
+        :next-link-class="'page'"
+        :container-class="'filter-page-panel'"
+        :page-class="'page-change'"
+        :page-link-class="'page'">
+      </paginate>
       </div>
     </div>
   </div>
@@ -57,23 +69,44 @@ export default {
   name: 'FilterMain',
   data () {
     return {
-      totalRecord: '',
+      totalRecord: 0,
+      currentPage: 0,
+      numberOfPages: 0,
       records: []
     }
   },
   methods: {
+    pagClickCallback (pageNum) {
+      const vm = this
+      vm.currentPage = pageNum - 1
+    },
     getData ({resp}) {
       const vm = this
       if (resp.data.success) {
         const result = resp.data.result
         vm.totalRecord = result.total
+        vm.numberOfPages = Math.round(vm.totalRecord / 10)
         vm.records = result.records
       }
     }
   },
+  computed: {
+    filterData () {
+      const vm = this
+      const newData = []
+      vm.records.forEach((item, i) => {
+        if (i % 10 === 0) {
+          newData.push([])
+        }
+        const page = parseInt(i / 10)
+        newData[page].push(item)
+      })
+      return newData
+    }
+  },
   created () {
     const vm = this
-    axios.get('https://data.kcg.gov.tw/api/action/datastore_search?resource_id=92290ee5-6e61-456f-80c0-249eae2fcc97&limit=5')
+    axios.get('https://data.kcg.gov.tw/api/action/datastore_search?resource_id=92290ee5-6e61-456f-80c0-249eae2fcc97&limit=999')
       .then(resp => vm.getData({resp}))
       .catch(error => console.error(error))
   }
