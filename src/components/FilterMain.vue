@@ -85,7 +85,7 @@ export default {
       if (resp.data.success) {
         const result = resp.data.result
         vm.totalRecord = result.total
-        vm.numberOfPages = Math.round(vm.totalRecord / 10)
+        vm.numberOfPages = Math.round(vm.totalRecord / 5)
         vm.records = result.records
       }
     }
@@ -95,10 +95,10 @@ export default {
       const vm = this
       const newData = []
       vm.records.forEach((item, i) => {
-        if (i % 10 === 0) {
+        if (i % 5 === 0) {
           newData.push([])
         }
-        const page = parseInt(i / 10)
+        const page = parseInt(i / 5)
         newData[page].push(item)
       })
       return newData
