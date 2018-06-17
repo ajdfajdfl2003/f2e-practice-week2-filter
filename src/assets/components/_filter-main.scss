@@ -43,10 +43,11 @@
         margin-top: 1.5rem;
         margin-right: 40px;
         transition: .35s;
-        box-shadow: 0 10px 6px -6px #777;
+        box-shadow: 0 5px 30px rgba(black,0.2);
 
         &:hover {
-          box-shadow: 0 5px 30px rgba(black,0.2);
+          box-shadow: 0 10px 6px -6px #777;
+          transform: translate(-2px, -2px);
         }
 
         img {
